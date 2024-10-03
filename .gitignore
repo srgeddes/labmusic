@@ -1,5 +1,5 @@
 venv
-.env 
 .cache
 node_modules
 __pycache__
+.env
