@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+  Admin Login
+{% endblock %}
+{% block content %}
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-3">
+        <h2 class="text-center mb-4 text-light">Admin Login</h2>
+        <form method="post" action="/admin">
+          <div class="mb-3">
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required />
+          </div>
+          <div class="mb-3">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required />
+          </div>
+          <button class="btn btn-success w-100" type="submit">Login</button>
+        </form>
+        {% if error %}
+          <p class="text-danger mt-3 text-center">{{ error }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
