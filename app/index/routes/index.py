@@ -14,6 +14,9 @@ index_bp = Blueprint("index", __name__)
 def index():
     sp = get_spotify_client()
 
+    if not sp:
+        return redirect(url_for("sptipy.login"))
+
     search_results = []
     current_song = None
     current_queue = []
@@ -38,6 +41,9 @@ def index():
 @index_bp.route("/queue", methods=["POST"])
 def queue_action():
     sp = get_spotify_client()
+
+    if not sp:
+        return redirect(url_for("sptipy.login"))
 
     track_uri = request.form.get("track_uri")
     if not track_uri:
